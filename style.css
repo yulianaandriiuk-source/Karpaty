@@ -1,0 +1,282 @@
+/* Загальні налаштування */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1a1a1a;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+/* Навігаційна панель */
+header {
+    background-color: #111111;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Кнопка меню (ховається на великих екранах) */
+.menu-btn {
+    display: none;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    padding: 8px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.menu-btn:hover {
+    background-color: #256428;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #ffffff;
+    background-color: #2e7d32;
+}
+
+/* Головний екран (слайд "Карпати зима") */
+.hero {
+    min-height: calc(100vh - 62px);
+    background: linear-gradient(rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.45)), 
+                url('hero-bg.jpg') center/cover no-repeat;
+    background-color: #d8e2dc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #111111;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #222222;
+}
+
+/* Контейнер для сторінок турів */
+.container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    min-height: 75vh;
+}
+
+.image-side {
+    flex: 1;
+}
+
+.image-side img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background-color: #e9ecef;
+}
+
+.image-side.framed img {
+    border: 2px solid #222222;
+    border-radius: 0;
+}
+
+.text-side {
+    flex: 1;
+}
+
+.text-side h2 {
+    font-size: 2.3rem;
+    line-height: 1.25;
+    margin-bottom: 20px;
+    color: #111111;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333333;
+}
+
+.tour-list {
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.tour-list li {
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+/* Кнопки у стилі презентації */
+.btn,
+.btn-dark {
+    display: inline-block;
+    background-color: #111111;
+    color: #ffffff;
+    padding: 14px 36px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-decoration: underline;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover,
+.btn-dark:hover {
+    background-color: #2e7d32;
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   Адаптивність для планшетів та телефонів
+   ========================================= */
+@media (max-width: 850px) {
+    /* Показуємо кнопку меню на телефоні */
+    .menu-btn {
+        display: block;
+    }
+
+    /* Випадаючий список меню */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #111111;
+        padding: 15px 20px 20px;
+        gap: 10px;
+        border-top: 1px solid #2a2a2a;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Клас, який відкриває меню при натисканні на кнопку */
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 10px 14px;
+        font-size: 1.05rem;
+        background-color: #1c1c1c;
+    }
+
+    .split-layout {
+        flex-direction: column;
+        gap: 25px;
+        min-height: auto;
+    }
+
+    .split-layout.reverse {
+        flex-direction: column-reverse;
+    }
+
+    .image-side,
+    .text-side {
+        width: 100%;
+    }
+
+    .image-side img {
+        height: 320px;
+    }
+
+    .text-side h2 {
+        font-size: 1.85rem;
+    }
+}
+
+/* Додаткове підлаштування для вузьких екранів смартфонів */
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2.1rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .container {
+        margin: 25px auto;
+        padding: 0 15px;
+    }
+
+    .image-side img {
+        height: 230px;
+    }
+
+    .text-side h2 {
+        font-size: 1.55rem;
+    }
+
+    .btn,
+    .btn-dark {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+    }
+}
